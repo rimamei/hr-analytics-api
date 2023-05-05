@@ -12,7 +12,49 @@
     "project": "tsconfig.json"
   },
   "rules": {
+    "unused-imports/no-unused-imports": "warn",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "indent": "off",
+    "@typescript-eslint/indent": "off",
+    "simple-import-sort/exports": "warn",
+    "simple-import-sort/imports": [
+      "warn",
+      {
+        "groups": [
+          ["^@?\\w", "^\\u0000"],
+          ["^@/constants"],
+          ["^@/controllers"],
+          ["^@/middlewares"],
+          ["^@/models"],
+          ["^@/routes"],
+          ["^@/services"],
+          ["^@/utils"],
+          ["^@/"],
+          [
+            "^\\./?$",
+            "^\\.(?!/?$)",
+            "^\\.\\./?$",
+            "^\\.\\.(?!/?$)",
+            "^\\.\\./\\.\\./?$",
+            "^\\.\\./\\.\\.(?!/?$)",
+            "^\\.\\./\\.\\./\\.\\./?$",
+            "^\\.\\./\\.\\./\\.\\.(?!/?$)"
+          ],
+          ["^"]
+        ]
+      }
+    ],
     "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/prefer-optional-chain": "off",
+    "@typescript-eslint/consistent-type-imports": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/no-misused-promises": "off"
   }
