@@ -1,6 +1,6 @@
 import { type NextFunction, type Request, type Response } from 'express'
 
-import { createUser, login } from '../services/auth.service'
+import { createUser, login } from '@/services/auth.service'
 
 const auth = {
   register: async (req: Request, res: Response, next: NextFunction) => {
