@@ -36,8 +36,6 @@ export const verifyToken = (req: Request, res: Response, next: NextFunction) => 
       })
     }
   } catch (error) {
-    throw new HttpException(401, {
-      errors: { message: 'Token needed' }
-    })
+    next(error)
   }
 }
