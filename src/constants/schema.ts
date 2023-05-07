@@ -19,3 +19,30 @@ export const loginSchema = yup.object({
 })
 
 export type LoginSchemaType = yup.InferType<typeof loginSchema>
+
+export const detailDepartmentSchema = yup.object({
+  params: yup.object({
+    id: yup.string().required('Department id is required')
+  })
+})
+
+export type DetailDepartmentSchemaType = yup.InferType<typeof detailDepartmentSchema>
+
+export const createDepartmentSchema = yup.object({
+  body: yup.object({
+    departmentName: yup.string().required('Department Name is required')
+  })
+})
+
+export type CreateDepartmentSchemaType = yup.InferType<typeof createDepartmentSchema>
+
+export const updateDepartmentSchema = yup.object({
+  params: yup.object({
+    id: yup.string().required('params id is required')
+  }),
+  body: yup.object({
+    departmentName: yup.string().required('Department Name is required')
+  })
+})
+
+export type UpdateDepartmentSchemaType = yup.InferType<typeof updateDepartmentSchema>

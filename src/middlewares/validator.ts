@@ -1,10 +1,24 @@
 import { NextFunction, Request, Response } from 'express'
 import { ObjectSchema, ValidationError } from 'yup'
 
-import { LoginSchemaType, RegisterSchemaType } from '@/constants/schema'
+import {
+  CreateDepartmentSchemaType,
+  DetailDepartmentSchemaType,
+  LoginSchemaType,
+  RegisterSchemaType,
+  UpdateDepartmentSchemaType
+} from '@/constants/schema'
 
 export const validate =
-  (schema: ObjectSchema<RegisterSchemaType | LoginSchemaType>) =>
+  (
+    schema: ObjectSchema<
+      | RegisterSchemaType
+      | LoginSchemaType
+      | DetailDepartmentSchemaType
+      | CreateDepartmentSchemaType
+      | UpdateDepartmentSchemaType
+    >
+  ) =>
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const resource = { body: req.body, query: req.query, params: req.params }
     try {

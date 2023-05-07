@@ -2,12 +2,8 @@ import bcrypt from 'bcryptjs'
 
 import HttpException from '@/constants/http-exception'
 import { RegisteredUser, RegisterInput } from '@/constants/types'
-
-import { generateToken } from '@/utils/token.utils'
-
 import prisma from '@/prisma/prisma-client'
-
-import { findExisting } from './department.service'
+import { generateToken } from '@/utils/token.utils'
 
 const checkUserUniqueness = async (email: string, username: string) => {
   const existingUserByEmail = await prisma.user.findUnique({
@@ -67,7 +63,7 @@ export const createUser = async (input: RegisterInput): Promise<RegisteredUser> 
   }
 }
 
-export const login = async (payload: { email: string, password: string }) => {
+export const login = async (payload: { email: string; password: string }) => {
   const { email, password } = payload
 
   const user = await prisma.user.findUnique({
@@ -91,26 +87,4 @@ export const login = async (payload: { email: string, password: string }) => {
       errors: { message: 'Email or password is invalid' }
     })
   }
-}
-
-export const getDetailDepartment = async (payload: { id: number }) => {
-  const { id } = payload
-
-  if (id) {
-    throw new HttpException(422, {
-      errors: { message: "departmentId can't be blank" }
-    })
-  }
-
-  await findExisting(id)
-
-  const data = await prisma.department.findUnique({
-    where: { id },
-    select: {
-      departmentName: true,
-      id: true
-    }
-  })
-
-  return data
 }

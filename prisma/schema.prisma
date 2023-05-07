@@ -51,7 +51,7 @@ model Recruitment {
 
 model Department {
   id               Int      @default(autoincrement()) @id
-  departmentName   String
+  departmentName   String   @unique
   createdBy        User     @relation(fields: [createdById], references: [id])
   createdById      Int   
   createdAt        DateTime @default(now())
