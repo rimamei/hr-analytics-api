@@ -42,3 +42,19 @@ export interface RegisterInput {
   password: string
   name: string
 }
+
+export interface CreateEmployeeType {
+  employeeName: string
+  employeeBirth: string
+  employeeSalary: number
+  departmentId: number
+  skill: string
+  status: string
+  startAt: Date
+  email: string
+}
+
+export interface UpdateEmployeeType extends CreateEmployeeType {
+  endAt: Date
+  id: number
+}

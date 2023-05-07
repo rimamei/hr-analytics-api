@@ -46,3 +46,40 @@ export const updateDepartmentSchema = yup.object({
 })
 
 export type UpdateDepartmentSchemaType = yup.InferType<typeof updateDepartmentSchema>
+
+export const createEmployeeSchema = yup.object({
+  body: yup.object({
+    employeeName: yup.string().required('Employee Name is required'),
+    employeeSalary: yup.number().required('Salary is required'),
+    employeeBirth: yup.date().required('Date of birth is required'),
+    startAt: yup.date().required('Start date is required'),
+    departmentId: yup.string().required('Department is required'),
+    skill: yup.string().required('Skill is required'),
+    status: yup.string().required('Status is required')
+  })
+})
+
+export type CreateEmployeeSchemaType = yup.InferType<typeof createEmployeeSchema>
+
+export const updateEmployeeSchema = yup.object({
+  body: yup.object({
+    employeeName: yup.string().required('Employee Name is required'),
+    employeeSalary: yup.number().required('Salary is required'),
+    employeeBirth: yup.date().required('Date of birth is required'),
+    startAt: yup.date().required('Start date is required'),
+    endAt: yup.date().notRequired(),
+    departmentId: yup.string().required('Department is required'),
+    skill: yup.string().required('Skill is required'),
+    status: yup.string().required('Status is required')
+  })
+})
+
+export type UpdateEmployeeSchemaType = yup.InferType<typeof updateEmployeeSchema>
+
+export const detailEmployeeSchema = yup.object({
+  params: yup.object({
+    id: yup.string().required('Employee id is required')
+  })
+})
+
+export type DetailEmployeeSchemaType = yup.InferType<typeof detailEmployeeSchema>

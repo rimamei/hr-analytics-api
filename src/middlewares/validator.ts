@@ -3,10 +3,13 @@ import { ObjectSchema, ValidationError } from 'yup'
 
 import {
   CreateDepartmentSchemaType,
+  CreateEmployeeSchemaType,
   DetailDepartmentSchemaType,
+  DetailEmployeeSchemaType,
   LoginSchemaType,
   RegisterSchemaType,
-  UpdateDepartmentSchemaType
+  UpdateDepartmentSchemaType,
+  UpdateEmployeeSchemaType
 } from '@/constants/schema'
 
 export const validate =
@@ -17,6 +20,9 @@ export const validate =
       | DetailDepartmentSchemaType
       | CreateDepartmentSchemaType
       | UpdateDepartmentSchemaType
+      | CreateEmployeeSchemaType
+      | UpdateEmployeeSchemaType
+      | DetailEmployeeSchemaType
     >
   ) =>
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
