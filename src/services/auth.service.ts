@@ -63,9 +63,7 @@ export const createUser = async (input: RegisterInput): Promise<RegisteredUser> 
   }
 }
 
-export const login = async (payload: { email: string; password: string }) => {
-  const { email, password } = payload
-
+export const login = async (email: string, password: string) => {
   const user = await prisma.user.findUnique({
     where: { email },
     select: { email: true, username: true, name: true, password: true }

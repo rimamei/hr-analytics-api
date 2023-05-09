@@ -7,9 +7,7 @@ export const getDepartment = async () => {
   return data
 }
 
-export const getDetailDepartment = async (payload: { id: number }) => {
-  const { id } = payload
-
+export const getDetailDepartment = async (id: number) => {
   const data = await prisma.department.findUnique({
     where: { id },
     select: {
@@ -27,8 +25,7 @@ export const getDetailDepartment = async (payload: { id: number }) => {
   return data
 }
 
-export const createDepartment = async (payload: { email: string; departmentName: string }) => {
-  const { email, departmentName } = payload
+export const createDepartment = async (email: string, departmentName: string) => {
   const user = await prisma.user.findUnique({
     where: { email },
     select: { id: true }
@@ -66,9 +63,7 @@ export const createDepartment = async (payload: { email: string; departmentName:
   return data
 }
 
-export const deleteDepartment = async (payload: { email: string; id: number }) => {
-  const { id } = payload
-
+export const deleteDepartment = async (email: string, id: number) => {
   const existingDepartment = await prisma.department.findUnique({
     where: {
       id
@@ -91,9 +86,7 @@ export const deleteDepartment = async (payload: { email: string; id: number }) =
   return data
 }
 
-export const updateDepartment = async (payload: { departmentName: string; id: number; email: string }) => {
-  const { id, departmentName, email } = payload
-
+export const updateDepartment = async (id: number, departmentName: string, email: string) => {
   const existingUser = await prisma.user.findUnique({
     where: {
       email
