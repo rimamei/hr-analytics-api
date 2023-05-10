@@ -49,30 +49,30 @@ $ npm run dev
 
 ### Authentication
 
-| No  | HTTP Method | URI               | Operation     |
-| --- | ----------- | ----------------- | ------------- |
-| 1   | POST        | /v1/auth/register | Register user |
-| 2   | POST        | /v1/auth/login    | Login User    |
+| No  | HTTP Method | URI                   | Operation     |
+| --- | ----------- | --------------------- | ------------- |
+| 1   | POST        | /api/v1/auth/register | Register user |
+| 2   | POST        | /api/v1/auth/login    | Login User    |
 
 ### Department
 
-| No  | HTTP Method | URI                | Operation                   |
-| --- | ----------- | ------------------ | --------------------------- |
-| 1   | GET         | /v1/departments    | Get all department data     |
-| 2   | GET         | /v1/department/:id | Get detail department by id |
-| 3   | POST        | /v1/department     | Create Department           |
-| 4   | DELETE      | /v1/department/:id | Delete department           |
-| 5   | PUT         | /v1/department/:id | Edit department             |
+| No  | HTTP Method | URI                    | Operation                   |
+| --- | ----------- | ---------------------- | --------------------------- |
+| 1   | GET         | /api/v1/departments    | Get all department data     |
+| 2   | GET         | /api/v1/department/:id | Get detail department by id |
+| 3   | POST        | /api/v1/department     | Create Department           |
+| 4   | DELETE      | /api/v1/department/:id | Delete department           |
+| 5   | PUT         | /api/v1/department/:id | Edit department             |
 
 ### Employee
 
-| No  | HTTP Method | URI              | Operation                 |
-| --- | ----------- | ---------------- | ------------------------- |
-| 1   | GET         | /v1/employees    | Get all employee data     |
-| 2   | GET         | /v1/employee/:id | Get detail employee by id |
-| 3   | POST        | /v1/employee     | Create employee           |
-| 4   | DELETE      | /v1/employee/:id | Delete employee           |
-| 5   | PUT         | /v1/employee/:id | Edit employee             |
+| No  | HTTP Method | URI                  | Operation                 |
+| --- | ----------- | -------------------- | ------------------------- |
+| 1   | GET         | /api/v1/employees    | Get all employee data     |
+| 2   | GET         | /api/v1/employee/:id | Get detail employee by id |
+| 3   | POST        | /api/v1/employee     | Create employee           |
+| 4   | DELETE      | /api/v1/employee/:id | Delete employee           |
+| 5   | PUT         | /api/v1/employee/:id | Edit employee             |
 
 ## Contributing
 
