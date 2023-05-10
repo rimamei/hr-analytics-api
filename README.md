@@ -1,10 +1,6 @@
-# EMPLOYEE API
+# HR Analytics API
 
-[![Node JS](https://img.shields.io/badge/Dependencies-Express%20JS-green)](https://nodejs.org/en/)
-![GitHub repo size](https://img.shields.io/github/repo-size/rimamei/employee-api)
-![GitHub contributors](https://img.shields.io/github/contributors/rimamei/employee-api)
-![GitHub stars](https://img.shields.io/github/stars/rimamei/employee-api?style=social)
-![GitHub forks](https://img.shields.io/github/forks/rimamei/employee-api?style=social)
+The HR Analytics API offers data-driven insights for HR decision-making, including employee performance and recruitment. It helps businesses optimize workforce management and enhance employee satisfaction.
 
 ### Technology used
 
