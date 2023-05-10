@@ -18,7 +18,8 @@ const auth = {
   },
   login: async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const user = await login(req.body)
+      const { email, password } = req.body
+      const user = await login(email, password)
       res.json({ data: { ...user } })
     } catch (error) {
       next(error)

@@ -25,7 +25,7 @@ const department = {
 
       const userId = parseInt(id)
 
-      const data = await getDetailDepartment({ id: userId })
+      const data = await getDetailDepartment(userId)
 
       res.json({ message: 'Success get detail department', status: 200, data })
     } catch (error) {
@@ -37,7 +37,7 @@ const department = {
       const { email } = (req as CustomRequest).token
       const { departmentName } = req.body
 
-      const data = await createDepartment({ email, departmentName })
+      const data = await createDepartment(email, departmentName)
 
       res.status(201).json({ message: 'Success create department', status: 201, data })
     } catch (error) {
@@ -50,7 +50,7 @@ const department = {
       const { id } = req.params
       const userId: number = parseInt(id)
 
-      const data = await deleteDepartment({ email, id: userId })
+      const data = await deleteDepartment(email, userId)
 
       res.status(200).json({ message: 'Success delete department', status: 200, data })
     } catch (error) {
@@ -66,7 +66,7 @@ const department = {
       const { departmentName } = req.body
       const departmentId: number = parseInt(id)
 
-      const data = await updateDepartment({ departmentName, id: departmentId, email })
+      const data = await updateDepartment(departmentId, departmentName, email)
 
       res.status(200).json({ message: 'Success delete department', status: 200, data })
     } catch (error) {
