@@ -19,8 +19,6 @@ The HR Analytics API offers data-driven insights for HR decision-making, includi
 - Tsconfig-path
 - Lint-staged
 
-### Getting Started
-
 ## Installation
 
 ### Clone
