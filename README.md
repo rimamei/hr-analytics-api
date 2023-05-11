@@ -39,6 +39,19 @@ PORT=YOUR_PORT
 JWT_SECRET = YOUR_SECRET_KEY
 ```
 
+### Start Docker Container
+
+```
+$ docker compose up -d
+```
+
+### Prisma
+
+```
+$ npx prisma migrate dev --name init
+$ studio prisma
+```
+
 ### Start Development Server
 
 ```
