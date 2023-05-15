@@ -37,9 +37,9 @@ const department = {
       const { email } = (req as CustomRequest).token
       const { departmentName } = req.body
 
-      const data = await createDepartment(email, departmentName)
+      await createDepartment(email, departmentName)
 
-      res.status(201).json({ message: 'Success create department', status: 201, data })
+      res.status(201).json({ message: 'Success create department', status: 201 })
     } catch (error) {
       next(error)
     }
@@ -50,9 +50,9 @@ const department = {
       const { id } = req.params
       const userId: number = parseInt(id)
 
-      const data = await deleteDepartment(email, userId)
+      await deleteDepartment(email, userId)
 
-      res.status(200).json({ message: 'Success delete department', status: 200, data })
+      res.status(200).json({ message: 'Success delete department', status: 200 })
     } catch (error) {
       next(error)
     }
@@ -65,9 +65,9 @@ const department = {
       const { departmentName } = req.body
       const departmentId: number = parseInt(id)
 
-      const data = await updateDepartment(departmentId, departmentName, email)
+      await updateDepartment(departmentId, departmentName, email)
 
-      res.status(200).json({ message: 'Success delete department', status: 200, data })
+      res.status(200).json({ message: 'Success delete department', status: 200 })
     } catch (error) {
       next(error)
     }

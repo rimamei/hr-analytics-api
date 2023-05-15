@@ -2,7 +2,7 @@ import HttpException from '@/constants/http-exception'
 import prisma from '@/prisma/prisma-client'
 
 export const getDepartment = async () => {
-  const data = await prisma.department.findMany()
+  const data = await prisma.department.findMany({ select: { departmentName: true, id: true } })
 
   return data
 }
