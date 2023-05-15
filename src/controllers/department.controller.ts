@@ -12,7 +12,12 @@ import {
 const department = {
   getDepartment: async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const data = await getDepartment()
+      const { orderBy, limit, page } = req.query as any
+
+      const limitParsing = limit ? parseInt(limit) : 0
+      const pageParsing = page ? parseInt(page) : 0
+
+      const data = await getDepartment(orderBy, limitParsing, pageParsing)
 
       res.json({ message: 'Success get all department', status: 200, data })
     } catch (error) {

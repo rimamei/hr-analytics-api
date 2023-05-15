@@ -1,10 +1,32 @@
 import HttpException from '@/constants/http-exception'
 import prisma from '@/prisma/prisma-client'
 
-export const getDepartment = async () => {
-  const data = await prisma.department.findMany({ select: { departmentName: true, id: true } })
+export const getDepartment = async (orderBy: 'asc' | 'desc', limit: number, page: number) => {
+  const skip = (page - 1) * limit
 
-  return data
+  const data = await prisma.department.findMany({
+    skip,
+    take: limit,
+    orderBy: {
+      departmentName: orderBy ?? 'desc'
+    },
+    select: { departmentName: true, id: true }
+  })
+
+  const totalData = await prisma.department.count()
+  const totalPage = Math.ceil(totalData / limit)
+
+  const allData = {
+    data,
+    meta: {
+      page: page - 0,
+      totalData,
+      totalDataOnPage: data.length ?? 0,
+      totalPage
+    }
+  }
+
+  return allData
 }
 
 export const getDetailDepartment = async (id: number) => {
