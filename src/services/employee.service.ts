@@ -44,7 +44,20 @@ export const getEmployee = async (orderBy: 'asc' | 'desc', limit: number, page: 
 
 export const getDetailEmployee = async (id: number) => {
   const data = await prisma.employee.findUnique({
-    where: { id }
+    where: { id },
+    select: {
+      id: true,
+      employeeName: true,
+      employeeBirth: true,
+      employeeSalary: true,
+      departmentName: true,
+      departmentId: true,
+      skill: true,
+      status: true,
+      startAt: true,
+      endAt: true,
+      createdAt: true
+    }
   })
 
   if (!data) {
