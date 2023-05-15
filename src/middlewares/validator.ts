@@ -6,6 +6,7 @@ import {
   CreateEmployeeSchemaType,
   DetailDepartmentSchemaType,
   DetailEmployeeSchemaType,
+  GetAllSchemaType,
   LoginSchemaType,
   RegisterSchemaType,
   UpdateDepartmentSchemaType,
@@ -23,6 +24,7 @@ export const validate =
       | CreateEmployeeSchemaType
       | UpdateEmployeeSchemaType
       | DetailEmployeeSchemaType
+      | GetAllSchemaType
     >
   ) =>
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
