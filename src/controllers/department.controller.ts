@@ -59,7 +59,6 @@ const department = {
   },
   updateDepartment: async (req: Request, res: Response, next: NextFunction) => {
     try {
-      console.log('test', (req as CustomRequest).token)
       const { email } = (req as CustomRequest).token
       const { id } = req.params
 

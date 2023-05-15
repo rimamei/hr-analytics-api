@@ -2,8 +2,15 @@ import HttpException from '@/constants/http-exception'
 import { CreateEmployeeType, UpdateEmployeeType } from '@/constants/types'
 import prisma from '@/prisma/prisma-client'
 
-export const getEmployee = async () => {
+export const getEmployee = async (orderBy: 'asc' | 'desc', limit: number, page: number) => {
+  const skip = (page - 1) * limit
+
   const data = await prisma.employee.findMany({
+    skip,
+    take: limit,
+    orderBy: {
+      employeeName: orderBy ?? 'desc'
+    },
     select: {
       id: true,
       employeeName: true,
@@ -11,8 +18,6 @@ export const getEmployee = async () => {
       employeeSalary: true,
       departmentName: true,
       departmentId: true,
-      createdBy: true,
-      createdById: true,
       skill: true,
       status: true,
       startAt: true,
@@ -21,7 +26,20 @@ export const getEmployee = async () => {
     }
   })
 
-  return data
+  const totalData = await prisma.employee.count()
+  const totalPage = Math.ceil(totalData / limit)
+
+  const allData = {
+    data,
+    meta: {
+      page: page - 0,
+      totalData,
+      totalDataOnPage: data.length ?? 0,
+      totalPage
+    }
+  }
+
+  return allData
 }
 
 export const getDetailEmployee = async (id: number) => {

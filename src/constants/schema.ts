@@ -29,6 +29,12 @@ export const detailDepartmentSchema = yup.object({
 export type DetailDepartmentSchemaType = yup.InferType<typeof detailDepartmentSchema>
 
 export const createDepartmentSchema = yup.object({
+  query: yup.object({
+    orderBy: yup.string().oneOf(['asc', 'desc']).notRequired(),
+    page: yup.number().notRequired(),
+    limit: yup.number().notRequired(),
+    departmentName: yup.string().required('Department Name is required')
+  }),
   body: yup.object({
     departmentName: yup.string().required('Department Name is required')
   })

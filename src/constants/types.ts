@@ -58,3 +58,9 @@ export interface UpdateEmployeeType extends CreateEmployeeType {
   endAt: Date
   id: number
 }
+
+export interface IMeta {
+  page: number
+  limit: number
+  orderBy: 'asc' | 'desc'
+}
